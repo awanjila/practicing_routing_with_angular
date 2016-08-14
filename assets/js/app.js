@@ -1,6 +1,7 @@
 var app = angular.module('app',['ngRoute']);
 
-app.config(['$routeProvider',function($routeProvider) {
+app.config(['$routeProvider','$locationProvider',function($routeProvider, $locationProvider) {
+	//$locationProvider.html5Mode(true);
 	$routeProvider
 	.when('/', {
 		templateUrl:'home.html',
@@ -403,8 +404,17 @@ app.config(['$routeProvider',function($routeProvider) {
 		
 	});
 	
+	
    /* .otherwise({
 	templateUrl:'pages/partial.404.html'
    });*/
+
+            //$locationProvider.html5Mode(true); will cause an error $location in HTML5 mode requires a  tag to be present! Unless you set baseUrl tag after head tag like so: <head> <base href="/">
+
+         // to know more about setting base URL visit: https://docs.angularjs.org/error/$location/nobase
+
+         // if you don't wish to set base URL then use this
+         
+        
 
 }]);
